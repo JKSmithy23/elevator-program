@@ -25,11 +25,15 @@ class Elevator {
     }
 
     move(destination) {
-        console.log(`Heading to floor ${destination}`)
-        let direction = destination > this.currentFloor ? 1 : -1
-        while (this.currentFloor !== destination) {
-            this.currentFloor += direction
+        if (this.currentFloor === destination) {
             this.check()
+        } else {
+            console.log(`Heading to floor ${destination}`)
+            let direction = destination > this.currentFloor ? 1 : -1
+            while (this.currentFloor !== destination) {
+                this.currentFloor += direction
+                this.check()
+            }
         }
     }
 
@@ -37,25 +41,17 @@ class Elevator {
         if (!this.passengers.length) {
             if (!this.passengerInput.length) {
                 console.log("Finished")
-                return
+                return this.currentFloor;
             }
 
-            console.log(`Elevator empty`)
-            if (this.currentFloor === this.passengerInput[0].currentFloor) {
-                this.check()
-            } else {
-                this.move(this.passengerInput[0].currentFloor)
-            }
+            console.log("Elevator empty")
+            this.move(this.passengerInput[0].currentFloor)
         }
 
         while (this.passengers.length) {
             this.move(this.passengers[0].destination)
         }
-
-        if (this.passengerInput.length) {
-            this.process()
-        }
-        return this.currentFloor;
+        this.process()
     }
 }
 
