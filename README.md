@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Simple Elevator Program
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -8,7 +8,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 4. path taken by elevator shown in console
 
 Notes:
-- There is no input validation, keep inputs between 1 and 10
+- There is no input validation, keep inputs between 1 and 10 and make sure they are all filled before pressing
+'Run elevator'
 - Not much error handling, refresh page to reset if needed
 
 ## Available Scripts

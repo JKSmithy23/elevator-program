@@ -22,10 +22,11 @@ export const PassengerInput = () => {
         setInputList([...inputList, { currentFloor: "", destination: "" }]);
     };
 
-    const runElevator = () => {
+    const runElevator = async () => {
         let elevator = new Elevator(inputList, currentElevatorFloor);
         const finalDestination = elevator.process();
         setCurrentElevatorFloor(finalDestination);
+        setInputList([{ currentFloor: "", destination: "" }]);
     };
 
     return (
